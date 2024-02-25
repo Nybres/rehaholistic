@@ -24,7 +24,7 @@ services:
     user: 1000:1000
     restart: always
     ports:
-      - "8000:80"
+      - "8888:80"
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: ${MYSQL_USER}
