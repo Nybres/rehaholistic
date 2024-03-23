@@ -3,8 +3,6 @@
     $menu = wp_get_nav_menu_object($menu_name);
     $menu_items = wp_get_nav_menu_items($menu->term_id);
 @endphp
-{{-- @dd($facebook_link = get_field('facebook_link', $menu)) --}}
-
 {{-- @if (!empty($menu_items))
     <ul>
         @foreach ($menu_items as $menu_item)
@@ -93,8 +91,6 @@
                 </ul>
                 <div class="nav__box">
                     <div class="nav__socials">
-                        {{-- @dd($facebook_link = get_field('facebook_link', $menu)) --}}
-
                         @if (get_field('facebook_link', $menu) != '')
                             <a class="social-icon" target="_blank" rel="nofollow"
                                 href="{{ get_field('facebook_link', $menu) }}">

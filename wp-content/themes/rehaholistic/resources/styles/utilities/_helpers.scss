@@ -1,14 +1,17 @@
-.h1 {}
+.h1 {
+    font-size: 28px;
+    line-height: 40px;
+}
 
-.h2 {}
+.h2 {
+    font-size: 26px;
+    line-height: 32px;
+}
 
-.h3 {}
-
-.text-small {}
-
-.text-medium {}
-
-.text-big {}
+.h3 {
+    font-size: 22px;
+    line-height: 32px;
+}
 
 .fw-500 {
     font-weight: 500;
@@ -20,4 +23,39 @@
 
 .pointer {
     cursor: pointer;
+}
+
+.mb {
+    &--8 {
+        margin-bottom: 8px;
+    }
+
+    &--16 {
+        margin-bottom: 16px;
+    }
+
+    &--24 {
+        margin-bottom: 24px;
+    }
+
+    &--32 {
+        margin-bottom: 32px
+    }
+}
+
+@media(min-width:576px) {
+    .h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .h2 {
+        font-size: 28px;
+        line-height: 40px;
+    }
+
+    .h3 {
+        font-size: 24px;
+        line-height: 32px;
+    }
 }

@@ -15,6 +15,9 @@ use function Roots\bundle;
  */
 add_action('wp_enqueue_scripts', function () {
     bundle('app')->enqueue();
+    if (is_page_template('home.blade.php')) {
+        bundle('home')->enqueue();
+    }
 }, 100);
 
 /**

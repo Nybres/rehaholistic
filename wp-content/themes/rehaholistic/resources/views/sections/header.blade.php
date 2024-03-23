@@ -1,11 +1,29 @@
-<header class="banner">
-  <a class="brand" href="{{ home_url('/') }}">
-    {!! $siteName !!}
-  </a>
-
-  @if (has_nav_menu('primary_navigation'))
-    <nav class="nav-primary" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
-      {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav', 'echo' => false]) !!}
-    </nav>
-  @endif
+<header class="hero">
+    <div class="container">
+        <div class="hero__row">
+            <div class="hero__left">
+                <h1 class="h1 hero__title fw-600 mb--16">{{ get_the_title() }}</h1>
+                @if (get_field('hero_subtitle') != '' && ($heroSubtitle = get_field('hero_subtitle')))
+                    <p class="h3 mb--8">
+                        {{ $heroSubtitle }}
+                    </p>
+                @endif
+                @if (get_field('hero_text') != '' && ($heroText = get_field('hero_text')))
+                    <p class="text-small mb--16">
+                        {{ $heroText }}
+                    </p>
+                @endif
+                @if (get_field('hero_button_text') != '' && ($btnText = get_field('hero_button_text')))
+                    <a title="{{ $btnText }}" href="#" class="btn btn--primary btn--md btn--center btn--fit">
+                        {{ $btnText }}
+                    </a>
+                @endif
+            </div>
+            <div class="hero__right">
+                <picture>
+                    <img width="700" height="550" src="@asset('images/img/radek_i_ola.png')" alt="">
+                </picture>
+            </div>
+        </div>
+    </div>
 </header>

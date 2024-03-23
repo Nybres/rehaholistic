@@ -53,13 +53,15 @@ main {
 		font-size: 16px;
 		line-height: 24px;
 		font-weight: 500;
-
-
 		padding: 12px 24px;
 	}
 
 	&--center {
 		text-align: center;
+	}
+
+	&--fit {
+		width: max-content;
 	}
 
 	&--primary {
@@ -73,10 +75,8 @@ main {
 		}
 	}
 
-	
-	&--secondary {
-		
-	}
+
+	&--secondary {}
 }
 
 .social-icon {
