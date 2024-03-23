@@ -63,3 +63,64 @@ collect(['setup', 'filters'])
             );
         }
     });
+
+
+// USŁUGI
+function custom_post_type_services() {
+    $labels = array(
+        'name'                  => 'Usługi',
+        'singular_name'         => 'Usługa',
+        'menu_name'             => 'Usługi',
+        'add_new'               => 'Dodaj nową usługę',
+        'add_new_item'          => 'Dodaj nową usługę',
+        'edit_item'             => 'Edytuj usługę',
+        'new_item'              => 'Nowa usługa',
+        'view_item'             => 'Zobacz usługę',
+        'view_items'            => 'Zobacz usługi',
+        'search_items'          => 'Szukaj usług',
+        'not_found'             => 'Brak usług',
+        'not_found_in_trash'    => 'Brak usług w koszu',
+        'all_items'             => 'Wszystkie usługi',
+        'archives'              => 'Archiwum usług',
+        'attributes'            => 'Atrybuty usługi',
+        'insert_into_item'      => 'Wstaw do usługi',
+        'uploaded_to_this_item' => 'Wgrano do tej usługi',
+        'filter_items_list'     => 'Filtruj listę usług',
+        'items_list_navigation' => 'Nawigacja listą usług',
+        'items_list'            => 'Lista usług',
+    );
+
+    $args = array(
+        'labels'                => $labels,
+        'public'                => true,
+        'has_archive'           => true,
+        'menu_icon'             => 'dashicons-hammer',
+        'supports'              => array( 'title', 'editor', 'thumbnail' ),
+        'capability_type'     => 'page',
+        'rewrite'               => array( 'slug' => '/' ),
+    );
+
+    register_post_type( 'uslugi', $args );
+}
+
+add_action( 'init', 'custom_post_type_services' );
+
+
+
+// Modyfikacja url wpisu blogowego
+function custom_post_link( $permalink, $post ) {
+    if ( 'post' === $post->post_type ) {
+        $categories = get_the_category($post->ID);
+        if ( ! empty( $categories ) ) {
+            $category = $categories[0]->slug;
+            if ( $category !== 'domyslna' ) {
+                $permalink = home_url( '/blog/' . $category . '/' . $post->post_name . '/' );
+            } else {
+                $permalink = home_url( '/blog/' . $post->post_name . '/' );
+            }
+        }
+    }
+    return $permalink;
+}
+add_filter( 'post_link', 'custom_post_link', 10, 2 );
+

@@ -14,9 +14,10 @@ export default async (app) => {
    * @see {@link https://bud.js.org/reference/bud.assets}
    */
   app
-    .entry('app', ['@scripts/app', '@styles/app'])
+    .entry('app', ['@scripts/app', '@scripts/main', '@styles/main'])
     .entry('editor', ['@scripts/editor', '@styles/editor'])
-    .assets(['images']);
+    .assets(['images', 'fonts']);
+  // .assets([app.path('src', 'images')], [app.path('src', 'fonts')])
 
   /**
    * Set public path
@@ -45,33 +46,32 @@ export default async (app) => {
    * @see {@link https://bud.js.org/extensions/sage/theme.json}
    * @see {@link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json}
    */
-  app.wpjson
-    .setSettings({
-      background: {
-        backgroundImage: true,
-      },
-      color: {
-        custom: false,
-        customDuotone: false,
-        customGradient: false,
-        defaultDuotone: false,
-        defaultGradients: false,
-        defaultPalette: false,
-        duotone: [],
-      },
-      custom: {
-        spacing: {},
-        typography: {
-          'font-size': {},
-          'line-height': {},
-        },
-      },
-      spacing: {
-        padding: true,
-        units: ['px', '%', 'em', 'rem', 'vw', 'vh'],
-      },
+  app.wpjson.setSettings({
+    background: {
+      backgroundImage: true,
+    },
+    color: {
+      custom: false,
+      customDuotone: false,
+      customGradient: false,
+      defaultDuotone: false,
+      defaultGradients: false,
+      defaultPalette: false,
+      duotone: [],
+    },
+    custom: {
+      spacing: {},
       typography: {
-        customFontSize: false,
+        'font-size': {},
+        'line-height': {},
       },
-    })
+    },
+    spacing: {
+      padding: true,
+      units: ['px', '%', 'em', 'rem', 'vw', 'vh'],
+    },
+    typography: {
+      customFontSize: false,
+    },
+  });
 };
