@@ -17,6 +17,7 @@ export default async (app) => {
     .entry('app', ['@scripts/app', '@scripts/main', '@styles/main'])
     .entry('editor', ['@scripts/editor', '@styles/editor'])
     .entry('home', ['@styles/home'])
+    .entry('splide', ['@scripts/splide', '@styles/splide-core'])
     .assets(['images', 'fonts']);
   // .assets([app.path('src', 'images')], [app.path('src', 'fonts')])
 
@@ -35,7 +36,7 @@ export default async (app) => {
    * @see {@link https://bud.js.org/reference/bud.watch}
    */
   app
-    .setUrl('http://localhost:3000')
+    .setUrl('http://localhost:8888')
     .setProxyUrl('http://example.test')
     .watch(['resources/views', 'app']);
 

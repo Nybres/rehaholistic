@@ -45,7 +45,6 @@
 
 <body @php(body_class())>
     @php(wp_body_open())
-    @include('sections.header')
     <main id="main" class="main">
         @yield('content')
     </main>

@@ -71,3 +71,148 @@
         }
     }
 }
+
+.home-about {
+    &__images {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    img {
+        overflow: hidden;
+        border-radius: 4px;
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__row {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__benefit {
+        &-icon {
+            border-radius: 4px;
+            background-color: var(--primary-color);
+            padding: 4px;
+            width: 32px;
+            height: 32px;
+            margin-bottom: 8px;
+        }
+
+        &-title {
+            margin-bottom: 8px;
+        }
+    }
+
+    @media(min-width:576px) {
+        &__images {
+            flex-direction: row;
+        }
+    }
+
+    @media(min-width:768px) {
+        &__row {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 32px;
+        }
+
+        &__right {
+            flex: 0 0 350px;
+        }
+
+        &__left {
+            max-width: 640px;
+        }
+    }
+
+    @media(min-width:992px) {
+        &__right {
+            justify-content: center;
+            flex: 0 0 450px;
+        }
+    }
+
+    @media(min-width:1200px) {
+        &__right {
+            flex: 0 1 520px;
+            gap: 32px;
+        }
+
+        &__benefit {
+            &-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+            }
+        }
+    }
+}
+
+.home-offert {
+    .splide {
+        padding-top: 24px;
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 300px;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 0 10px 4px #edeeef;
+
+        &-img {
+            font-size: 0;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        &-body {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--white-color);
+            padding: 16px;
+            flex-grow: 1;
+        }
+
+        &-title {
+            color: var(--secondary-color);
+        }
+
+        &-link {
+            color: var(--primary-color);
+            margin-top: auto;
+        }
+    }
+
+    @media(min-width: 992px) {
+        &__card {
+            flex: 0 0 auto;
+        }
+    }
+
+    @media(min-width: 1200px) {
+        .splide {
+            padding-top: 32px;
+        }
+
+        &__card {
+            &-body {
+                padding: 24px 32px 32px;
+            }
+        }
+    }
+}

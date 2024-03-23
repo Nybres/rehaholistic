@@ -19,11 +19,13 @@
                     </a>
                 @endif
             </div>
-            <div class="hero__right">
-                <picture>
-                    <img width="700" height="550" src="@asset('images/img/radek_i_ola.png')" alt="">
-                </picture>
-            </div>
+            @if ($image = get_field('hero_image'))
+                <div class="hero__right">
+                    <picture>
+                        <img alt="{{ $image['alt'] }}" width="700" height="550" src="{{ $image['url'] }}">
+                    </picture>
+                </div>
+            @endif
         </div>
     </div>
 </header>
