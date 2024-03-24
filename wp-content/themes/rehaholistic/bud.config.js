@@ -18,6 +18,7 @@ export default async (app) => {
     .entry('editor', ['@scripts/editor', '@styles/editor'])
     .entry('home', ['@styles/home'])
     .entry('splide', ['@scripts/splide', '@styles/splide-core'])
+    .entry('single-offert', ['@styles/single-offert'])
     .assets(['images', 'fonts']);
   // .assets([app.path('src', 'images')], [app.path('src', 'fonts')])
 

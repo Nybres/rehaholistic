@@ -19,6 +19,10 @@ add_action('wp_enqueue_scripts', function () {
         bundle('splide')->enqueue();
         bundle('home')->enqueue();
     };
+    if (is_page_template('single-offert.blade.php')) {
+        bundle('splide')->enqueue();
+        bundle('single-offert')->enqueue();
+    };
 }, 100);
 
 /**

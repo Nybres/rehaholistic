@@ -1,3 +1,95 @@
-body {
-    background-color: royalblue;
+.page-header {
+    padding: 48px 0;
+    background: linear-gradient(120deg, rgba(132, 250, 176, .95), rgba(143, 211, 244, .65));
+
+    .h1 {
+        text-align: center;
+        color: var(--white-color);
+        letter-spacing: 2px;
+    }
+
+    @media(min-width:1200px) {
+        padding: 64px 0;
+    }
+}
+
+.page-content {
+    &__welcome {
+        padding-top: 24px;
+        line-height: 26px;
+    }
+
+    &__content {
+        padding-top: 32px;
+        color: var(--gray-color);
+
+        h2,
+        h3,
+        h4,
+        h5 {
+            color: var(--secondary-color);
+        }
+
+        h2 {
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        p {
+            color: var(--gray-color);
+
+            &+p {
+                margin-top: 8px;
+            }
+        }
+
+        // 
+        .wp-block-columns {
+
+            &+.wp-block-columns {
+                margin-top: 32px;
+            }
+
+            &+.wp-block-heading {
+                margin-top: 32px;
+            }
+
+            gap: 32px;
+        }
+
+        .wp-block-column {
+            ul {
+                list-style: disc;
+                margin-left: 24px;
+
+                li::marker {
+                    color: var(--primary-color);
+                }
+            }
+        }
+
+        .wp-block-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.need-help {
+    padding: 32px 0;
+    &__row {
+        display: flex;
+        align-items: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__title{
+        color: var(--primary-color);
+    }
+
+    @media(min-width:1200px){
+        padding: 32px 0 56px;
+    }
 }
