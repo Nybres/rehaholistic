@@ -16,11 +16,16 @@
 
             <div class="home-about__row">
                 <div class="home-about__left">
-                    @if (get_field('home_text') != '' && ($homeText = get_field('home_text')))
+                    @php
+                        $page_id = get_option('page_on_front');
+                        $content = get_post_field('post_content', $page_id);
+                    @endphp
+                    @if ($content != '')
                         <p class="small-text gray-text mb--24">
-                            {{ $homeText }}
+                            {{ strip_tags($content) }}
                         </p>
                     @endif
+
                     <div class="home-about__images">
                         @if ($image = get_field('home_image_one'))
                             <picture>
@@ -199,7 +204,8 @@
                 <p class="t-c mb--16 normal-text">
                     Zapomnij o bólu i ograniczeniach ruchowych - z nami poczujesz się lepiej!
                 </p>
-                <a title="Skontaktuj się" class="btn btn--primary btn--md btn--center btn--fit" href="#">Skontaktuj
+                <a title="Skontaktuj się" class="btn btn--primary btn--md btn--center btn--fit"
+                    href="{{ home_url('/kontakt/') }}">Skontaktuj
                     się</a>
             </div>
         </div>
@@ -250,7 +256,8 @@
                                         </h3>
                                         <p class="regular-text gray-text mb--24 home-employees__body-text">
                                             {{ get_field('krotki_opis_strona_glowna', $employe->ID) }}</p>
-                                        <a class="home-employees__body-link" title="Czytaj więcej" href="#">Czytaj
+                                        <a class="home-employees__body-link" title="Czytaj więcej"
+                                            href="{{ home_url('/o-nas/') }}">Czytaj
                                             więcej >></a>
                                     </div>
                                 </li>

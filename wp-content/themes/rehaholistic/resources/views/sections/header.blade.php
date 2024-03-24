@@ -14,7 +14,7 @@
                     </p>
                 @endif
                 @if (get_field('hero_button_text') != '' && ($btnText = get_field('hero_button_text')))
-                    <a title="{{ $btnText }}" href="#" class="btn btn--primary btn--md btn--center btn--fit">
+                    <a title="{{ $btnText }}" href="{{ home_url('/kontakt/') }}" class="btn btn--primary btn--md btn--center btn--fit">
                         {{ $btnText }}
                     </a>
                 @endif

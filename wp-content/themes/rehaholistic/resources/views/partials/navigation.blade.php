@@ -28,7 +28,7 @@
         @endforeach
     </ul>
 @endif --}}
-<nav>
+<nav class="nav">
     <div class="container">
         <div class="nav__row">
             <a href="{!! site_url() !!}" title="{{ get_bloginfo('name') }}" class="nav__logo">
@@ -125,7 +125,8 @@
                             </a>
                         @endif
                     </div>
-                    <a class="btn btn--primary btn--md btn--center" href="#">Umów wizytę</a>
+                    <a class="btn btn--primary btn--md btn--center" href="{{ home_url('/kontakt/') }}">Umów
+                        wizytę</a>
                 </div>
             </div>
             <div class="hamburger jsHamburger">

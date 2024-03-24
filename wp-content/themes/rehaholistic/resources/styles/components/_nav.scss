@@ -1,4 +1,19 @@
 .nav {
+    position: sticky;
+    top: 0;
+    background-color: var(--white-color);
+    z-index: 10;
+    transition: all .3s;
+
+    &.scrolled {
+        transform: translateY(-100%);
+    }
+
+    &.sticky {
+        border-bottom: 1px solid var(--gray-section);
+        transform: unset;
+    }
+
     &__logo {
         display: flex;
         align-items: center;
@@ -205,6 +220,7 @@
             transition: all .3s;
             z-index: 10;
             padding: 0;
+            border-bottom: 1px solid var(--gray-section);
 
             &-item {
                 font-size: 16px;
