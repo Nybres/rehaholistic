@@ -203,6 +203,8 @@
             opacity: 0;
             visibility: hidden;
             transition: all .3s;
+            z-index: 10;
+            padding: 0;
 
             &-item {
                 font-size: 16px;

@@ -64,6 +64,54 @@ collect(['setup', 'filters'])
         }
     });
 
+// Pracownicy
+function custom_post_type_employees() {
+    $labels = array(
+        'name'                  => 'Pracownicy',
+        'singular_name'         => 'Pracownik',
+        'menu_name'             => 'Pracownicy',
+        'add_new'               => 'Dodaj nowego pracownika',
+        'add_new_item'          => 'Dodaj nowego pracownika',
+        'edit_item'             => 'Edytuj pracownika',
+        'new_item'              => 'Nowy pracownik',
+        'view_item'             => 'Zobacz pracownika',
+        'view_items'            => 'Zobacz pracowników',
+        'search_items'          => 'Szukaj pracowników',
+        'not_found'             => 'Brak pracowników',
+        'not_found_in_trash'    => 'Brak pracowników w koszu',
+        'all_items'             => 'Wszyscy pracownicy',
+        'archives'              => 'Archiwum pracowników',
+        'attributes'            => 'Atrybuty pracownika',
+        'insert_into_item'      => 'Wstaw do pracownika',
+        'uploaded_to_this_item' => 'Wgrano do tego pracownika',
+        'filter_items_list'     => 'Filtruj listę pracowników',
+        'items_list_navigation' => 'Nawigacja listą pracowników',
+        'items_list'            => 'Lista pracowników',
+    );
+
+    $args = array(
+        'labels'                => $labels,
+        'public'                => true,
+        'has_archive'           => true,
+        'menu_icon'             => 'dashicons-businessman', // Ikona pracownika
+        'supports'              => array( 'title', 'editor', 'thumbnail' ),
+        'capability_type'     => 'page',
+        'rewrite'               => array( 'slug' => 'pracownicy' ), // Slug dla URL pracowników
+    );
+
+    register_post_type( 'pracownicy', $args ); // Rejestruj typ wpisu jako 'pracownicy'
+}
+
+add_action( 'init', 'custom_post_type_employees' );
+
+
+// Rozmiary obrazów
+add_action('after_setup_theme', 'custom_image_sizes');
+
+function custom_image_sizes() {
+    add_image_size('employe_image', 488, 333, false);
+}
+
 
 // USŁUGI
 // function custom_post_type_services() {

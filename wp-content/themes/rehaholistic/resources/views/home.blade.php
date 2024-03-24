@@ -153,7 +153,104 @@
                                         <p class="home-offert__card-text regular-text gray-text mb--24">
                                             {{ get_field('tekst_dla_karty_na_stronie_glownej', $page->ID) }}
                                         </p>
-                                        <a class="home-offert__card-link" href="{{ get_permalink($page->ID) }}">Czytaj
+                                        <a class="home-offert__card-link" href="{{ get_permalink($page->ID) }}">
+                                            Czytaj więcej >></a>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+    <section class="section-padding home-gallery">
+        <div class="container">
+            <div class="heading heading--center">
+                <h2 class="h2 heading__title">UCZYMY SIĘ OD NAJLEPSZYCH</h2>
+                <p class="heading__subtitle">Stale poszerzamy swoją wiedzę</p>
+            </div>
+            @php
+                $images = [];
+                for ($i = 1; $i <= 9; $i++) {
+                    $zdjecie = get_field('zdjecie_' . $i);
+                    if ($zdjecie) {
+                        $images[] = $zdjecie;
+                    }
+                }
+            @endphp
+            <div class="home-gallery__grid">
+                @foreach ($images as $index => $image)
+                    <div class="home-gallery__image home-gallery__image--{{ $index + 1 }}">
+                        <picture>
+                            <img width="{{ $image['width'] }}" height="{{ $image['height'] }}" loading="lazy"
+                                src="{{ $image['url'] }}" alt="{{ $image['alt'] }}">
+                        </picture>
+                    </div>
+                @endforeach
+            </div>
+    </section>
+    <section style="background-image: url(@asset('images/img/help_background.jpg'));" class="home-help">
+        <div class="container">
+            <div class="home-help__text">
+                <h3 class="mb--8 h2 t-c">
+                    Potrzebujesz naszej pomocy?
+                </h3>
+                <p class="t-c mb--16 normal-text">
+                    Zapomnij o bólu i ograniczeniach ruchowych - z nami poczujesz się lepiej!
+                </p>
+                <a title="Skontaktuj się" class="btn btn--primary btn--md btn--center btn--fit" href="#">Skontaktuj
+                    się</a>
+            </div>
+        </div>
+    </section>
+    @php
+        $args = [
+            'post_type' => 'pracownicy',
+            'meta_key' => 'pokaz_na_stronie_glownej',
+            'meta_value' => true,
+        ];
+        $query = new WP_Query($args);
+        $employees = $query->get_posts();
+        usort($employees, function ($a, $b) {
+            $order_a = get_field('kolejnosc_strona_glowna', $a->ID);
+            $order_b = get_field('kolejnosc_strona_glowna', $b->ID);
+            return $order_a - $order_b;
+        });
+    @endphp
+    @if (!empty($employees))
+        <section class="section-padding home-employees">
+            <div class="container">
+                <div class="heading heading--center">
+                    <h2 class="h2 heading__title">ZAPRASZAMY DO NASZYCH GABINETÓW</h2>
+                    <p class="heading__subtitle">Certyfikowani fizjoterapeuci w Pile</p>
+                </div>
+                <div class="splide jsEmployes home-employees__row" aria-label="Rehaholistic nasi pracownicy">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            @foreach ($employees as $employe)
+                                @php
+                                    $image = wp_get_attachment_image_src(
+                                        get_post_thumbnail_id($employe->ID),
+                                        'employe_image',
+                                    );
+                                @endphp
+                                <li class="splide__slide home-employees__card">
+                                    @if ($image)
+                                        <div class="home-employees__image">
+                                            <picture>
+                                                <img alt="{{ $employe->post_title }}" width="{{ $image[1] }}"
+                                                    height="{{ $image[2] }}" loading="lazy"
+                                                    src="{{ $image[0] }}" alt="{{ $employe->post_title }}">
+                                            </picture>
+                                        </div>
+                                    @endif
+                                    <div class="home-employees__body">
+                                        <h3 class="h3 fw-600 mb--8 home-employees__body-title">{{ $employe->post_title }}
+                                        </h3>
+                                        <p class="regular-text gray-text mb--24 home-employees__body-text">
+                                            {{ get_field('krotki_opis_strona_glowna', $employe->ID) }}</p>
+                                        <a class="home-employees__body-link" title="Czytaj więcej" href="#">Czytaj
                                             więcej >></a>
                                     </div>
                                 </li>
