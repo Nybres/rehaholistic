@@ -1,18 +1,3 @@
-.page-header {
-    padding: 48px 0;
-    background: linear-gradient(120deg, rgba(132, 250, 176, .95), rgba(143, 211, 244, .65));
-
-    .h1 {
-        text-align: center;
-        color: var(--white-color);
-        letter-spacing: 2px;
-    }
-
-    @media(min-width:1200px) {
-        padding: 64px 0;
-    }
-}
-
 .page-content {
     &__welcome {
         padding-top: 24px;

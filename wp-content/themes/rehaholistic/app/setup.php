@@ -20,8 +20,13 @@ add_action('wp_enqueue_scripts', function () {
         bundle('home')->enqueue();
     };
     if (is_page_template('single-offert.blade.php')) {
-        bundle('splide')->enqueue();
         bundle('single-offert')->enqueue();
+    };
+    if (is_page_template('about-us.blade.php')) {
+        bundle('about')->enqueue();
+    };
+    if (is_page_template('contact.blade.php')) {
+        bundle('contact')->enqueue();
     };
 }, 100);
 

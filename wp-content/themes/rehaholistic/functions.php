@@ -96,6 +96,7 @@ function custom_post_type_employees() {
         'menu_icon'             => 'dashicons-businessman', // Ikona pracownika
         'supports'              => array( 'title', 'editor', 'thumbnail' ),
         'capability_type'     => 'page',
+        'show_in_rest'       => true,
         'rewrite'               => array( 'slug' => 'pracownicy' ), // Slug dla URL pracowników
     );
 

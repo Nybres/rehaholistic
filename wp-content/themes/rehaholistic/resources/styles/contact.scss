@@ -1,0 +1,10 @@
+.contact-map {
+    &__map {
+        padding-top: 24px;
+
+        iframe {
+            font-size: 0;
+            width: 100%;
+        }
+    }
+}

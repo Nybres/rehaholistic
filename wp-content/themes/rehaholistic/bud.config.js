@@ -19,6 +19,8 @@ export default async (app) => {
     .entry('home', ['@styles/home'])
     .entry('splide', ['@scripts/splide', '@styles/splide-core'])
     .entry('single-offert', ['@styles/single-offert'])
+    .entry('about', ['@styles/about'])
+    .entry('contact', ['@styles/contact'])
     .assets(['images', 'fonts']);
   // .assets([app.path('src', 'images')], [app.path('src', 'fonts')])
 
