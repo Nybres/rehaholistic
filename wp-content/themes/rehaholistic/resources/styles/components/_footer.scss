@@ -1,0 +1,117 @@
+.footer {
+    position: relative;
+    margin-top: 88px;
+    padding: 32px 0;
+    color: var(--white-color);
+    background-color: var(--black-ligh-color);
+
+    &__wave {
+        position: absolute;
+        top: -80px;
+        height: 80px;
+        object-fit: cover;
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+
+    &__socials {
+        display: flex;
+        gap: 8px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--white-color);
+
+        svg path {
+            fill: var(--white-color);
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+        justify-content: center;
+        padding-top: 24px;
+
+        &-heading {
+            text-align: center;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            li {
+                transition: color .3s;
+
+                &:hover {
+                    color: var(--secondary-color);
+                }
+            }
+        }
+    }
+
+    @media(min-width:768px) {
+        margin-top: 128px;
+
+        &__wave {
+            height: 120px;
+            top: -120px;
+            object-fit: unset;
+        }
+
+        &__info {
+            .small-text {
+                font-size: 16px;
+                line-height: 24px;
+            }
+        }
+
+        &__menu {
+            flex-direction: row;
+            gap: 128px;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+            &-heading {
+                text-align: left;
+            }
+
+            div {
+                max-width: 480px;
+            }
+
+            ul {
+                align-items: start;
+                justify-content: start;
+            }
+        }
+    }
+
+    @media(min-width:1200px) {
+        margin-top: 188px;
+
+        &__wave {
+            height: 180px;
+            top: -180px;
+            object-fit: unset;
+        }
+
+        &__menu {
+            div {
+                flex: 0 0 500px;
+                max-width: unset
+            }
+        }
+    }
+}

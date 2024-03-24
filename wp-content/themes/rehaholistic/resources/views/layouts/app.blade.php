@@ -48,7 +48,7 @@
     <main id="main" class="main">
         @yield('content')
     </main>
-
+    @include('partials.footer')
     {{-- <div id="app">
       <a class="sr-only focus:not-sr-only" href="#main">
         {{ __('Skip to content') }}
@@ -72,5 +72,6 @@
     @php(do_action('get_footer'))
     @php(wp_footer())
 </body>
+
 
 </html>
