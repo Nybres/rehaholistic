@@ -8,3 +8,91 @@
         }
     }
 }
+
+.contact {
+    &__row {
+        padding-top: 24px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column-reverse;
+        background-color: var(--gray-section);
+        border-radius: 4px;
+        max-width: 540px;
+        width: 100%;
+        color: var(--black-ligh-color);
+        box-shadow: 0 0 10px 4px #edeeef;
+
+        svg path,
+        svg polyline {
+            stroke: var(--secondary-color);
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color .3s;
+
+            &+a {
+                margin-top: 8px;
+            }
+
+            &:hover {
+                color: var(--primary-color);
+            }
+        }
+
+        &-left {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 8px 16px 24px 16px;
+        }
+
+        &-right {
+            img {
+                width: 100%;
+            }
+
+            font-size: 0;
+            margin-bottom: 16px;
+        }
+
+        &-title {
+            color: var(--secondary-color);
+        }
+
+        h4 {
+            color: var(--primary-color);
+        }
+    }
+
+
+    @media(min-width:576px) {
+        &__card {
+            &-left {
+                padding: 8px 24px 32px
+            }
+        }
+    }
+
+    @media(min-width:768px) {
+        &__row {
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+
+    @media(min-width:1200px) {
+        &__row {
+            padding-top: 32px;
+            gap: 32px;
+        }
+    }
+}
